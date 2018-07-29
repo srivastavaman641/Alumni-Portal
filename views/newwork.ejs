@@ -1,0 +1,33 @@
+<% include partials/header %>
+
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center;">Add New Working Experience for <%= user.firstname %></h1>
+        <div style="width: 30%; margin: 30px auto;" >
+            
+            <form action="/members/<%=user._id%>/work" method="POST">
+                <div class="form-group">
+                    <input type="text" name="work[company]" placeholder="organisation">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="work[role]" placeholder="position">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="work[joinyear]" placeholder="joining year">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="work[leaveyear]" placeholder="leaving year">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<% include partials/footer %>

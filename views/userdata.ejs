@@ -1,0 +1,43 @@
+<% include partials/header %>
+
+<p>Details about the user:</p>
+
+<ul>
+    <li>User: <%= user.firstname %> <%= user.lastname %></li>
+    <li>Email: <%= user.email %></li>
+    <li>Phone: <%= user.phone %></li>
+    <li>Roll Number: <%= user.roll %></li>
+    <li>Course: <%= user.course %></li>
+    <li>Username: <%= user.username %></li>
+</ul>
+
+<% if(user.education.length != 0){ %>
+        <h3>Education:</h3>
+        <% user.education.forEach(function(education){ %>
+            <ul>
+                <li>Course: <%= education.course %></li>
+                <li>University: <%= education.university %></li>
+                <li>Joining Year: <%= education.yearofjoin %></li>
+                <li>Passing Year: <%= education.passyear %></li>
+            </ul>
+        <% }) %>
+<% } %>
+
+<% if(user.work.length != 0){ %>
+        <h3>Working Experience:</h3>
+        <% user.work.forEach(function(work){ %>
+            <ul>
+                <li>Organisation: <%= work.company %></li>
+                <li>Position: <%= work.role %></li>
+                <li>Joining Year: <%= work.joinyear %></li>
+                <li>Leaving Year: <%= work.leaveyear %></li>
+            </ul>
+        <% }) %>
+<% } %>
+
+<div><a href="/members/<%= user._id %>/education/new"><button>Add new Education</button></a></div>
+
+
+<div><a href="/members/<%= user._id %>/work/new"><button>Add new Working Experience</button></a></div>
+
+<% include partials/footer %>
